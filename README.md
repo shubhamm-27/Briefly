@@ -1,86 +1,42 @@
-# 🚀 Briefly - AI Powered Text Summarization using FastAPI & T5
+# 🚀 Briefly – AI-Powered Text Summarizer
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![Transformers](https://img.shields.io/badge/HuggingFace-Transformers-FFD21E?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
----
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-FFD21E?style=for-the-badge)
 
 ## 📖 Overview
 
-**Briefly** is an AI-powered web application that generates concise and meaningful summaries from lengthy text or dialogues using a fine-tuned **T5 Transformer** model.
+**Briefly** is an AI-powered web application that generates concise and meaningful summaries from lengthy text using a fine-tuned **T5 Transformer** model.
 
-The application is built with **FastAPI** for the backend and a modern **HTML, CSS, and JavaScript** frontend. Users can simply paste long text into the interface, and the model generates a readable abstractive summary within seconds.
+The application is built using **FastAPI** as the backend framework and a responsive frontend developed with **HTML, CSS, and JavaScript**. It provides users with an intuitive interface where they can paste long text, generate AI-powered summaries in real time, and copy the generated output with a single click.
 
-The project demonstrates the complete workflow of an NLP application—from preprocessing and model inference to REST API development and frontend integration.
+The project demonstrates the complete deployment pipeline of an NLP model—from preprocessing and inference to REST API development and frontend integration.
 
 ---
 
 ## ✨ Features
 
-- 📝 AI-powered abstractive text summarization
-- 🤖 Fine-tuned T5 Transformer model
-- ⚡ FastAPI backend for high-performance inference
-- 🎨 Modern glassmorphism user interface
+- 🤖 AI-powered abstractive text summarization
+- ⚡ High-performance FastAPI backend
+- 🎨 Modern glassmorphism-inspired UI
+- 📝 Automatic text preprocessing
 - 📊 Live character counter
-- ⏳ Loading animation during summary generation
+- ⏳ Loading animation during inference
 - 📋 One-click copy summary feature
-- 🧹 Automatic text preprocessing
-- 💻 Responsive design
-- 🔌 REST API support for integration with other applications
-- 🚀 Automatic device selection (Apple MPS → CUDA → CPU)
+- 💻 Automatic hardware detection (MPS → CUDA → CPU)
+- 🔌 REST API for integration with external applications
+- 📱 Responsive and clean user interface
 
 ---
 
-# 📸 Application Preview
+## 🛠 Tech Stack
 
-> Add screenshots of your application here.
+### Frontend
 
-```
-screenshots/
-│
-├── homepage.png
-├── loading.png
-└── summary.png
-```
-
----
-
-# 🏗 Project Architecture
-
-```
-                 User
-                  │
-                  ▼
-        HTML • CSS • JavaScript
-                  │
-                  ▼
-           FastAPI Backend
-                  │
-        Text Preprocessing
-                  │
-                  ▼
-        Hugging Face Tokenizer
-                  │
-                  ▼
-        Fine-Tuned T5 Transformer
-                  │
-                  ▼
-         Generated Summary
-                  │
-                  ▼
-         Displayed on Frontend
-```
-
----
-
-# ⚙ Tech Stack
-
-### Programming Language
-
-- Python
+- HTML5
+- CSS3
+- JavaScript
 
 ### Backend
 
@@ -94,13 +50,7 @@ screenshots/
 - PyTorch
 - SentencePiece
 
-### Frontend
-
-- HTML5
-- CSS3
-- JavaScript
-
-### Development
+### Development Tools
 
 - Jupyter Notebook
 - Git
@@ -108,158 +58,133 @@ screenshots/
 
 ---
 
-# 📂 Project Structure
+## 🏗 System Architecture
 
-```
-Briefly/
-│
-├── templates/
-│   └── index.html
-│
-├── saved_summary_model/
-│
-├── main.py
-├── requirements.txt
-├── .gitignore
-├── README.md
-│
-└── screenshots/
+```text
+                 User
+                   │
+                   ▼
+      HTML • CSS • JavaScript
+                   │
+                   ▼
+            FastAPI Backend
+                   │
+                   ▼
+          Text Preprocessing
+                   │
+                   ▼
+             T5 Tokenizer
+                   │
+                   ▼
+      Fine-Tuned T5 Transformer
+                   │
+                   ▼
+         Generated Summary
+                   │
+                   ▼
+          Displayed on Frontend
 ```
 
 ---
 
-# 🧠 How the Project Works
+## 🔄 Project Workflow
 
-### Step 1 — User Input
+### Step 1 – User Input
 
-The user enters or pastes a long paragraph, article, or dialogue into the text box.
+The user enters or pastes lengthy text into the application.
 
-⬇
+### Step 2 – API Request
 
-### Step 2 — API Request
+The frontend sends the input text to the FastAPI backend through a POST request.
 
-JavaScript sends the text to the FastAPI backend using a **POST** request.
+### Step 3 – Text Preprocessing
 
-⬇
-
-### Step 3 — Text Cleaning
-
-The backend preprocesses the input by:
+Before inference, the backend cleans the input by:
 
 - Removing HTML tags
 - Removing extra spaces
 - Removing unnecessary line breaks
 - Converting text to lowercase
 
-⬇
+### Step 4 – Tokenization
 
-### Step 4 — Tokenization
+The cleaned text is converted into tokens using the T5 tokenizer.
 
-The cleaned text is tokenized using the T5 tokenizer before being fed into the model.
+### Step 5 – Summary Generation
 
-⬇
+The fine-tuned T5 Transformer processes the tokenized input and generates an abstractive summary using beam search decoding.
 
-### Step 5 — Summary Generation
+### Step 6 – Response
 
-The fine-tuned T5 Transformer generates an abstractive summary using:
+The generated tokens are decoded back into readable text and returned to the frontend as a JSON response.
 
-- Beam Search
-- Maximum output length
-- Early stopping
+### Step 7 – Output Display
 
-⬇
-
-### Step 6 — Decoding
-
-Generated token IDs are decoded back into natural language.
-
-⬇
-
-### Step 7 — Display Result
-
-The generated summary is returned as JSON and displayed on the webpage.
+The summary is displayed on the webpage, where users can instantly copy it using the built-in copy button.
 
 ---
 
-# 🤖 Model Details
+## 📸 Screenshots
 
-| Parameter | Value |
-|-----------|-------|
-| Model | Fine-Tuned T5 Transformer |
-| Framework | Hugging Face Transformers |
-| Deep Learning Library | PyTorch |
-| Maximum Input Length | 512 Tokens |
-| Maximum Output Length | 150 Tokens |
-| Beam Search | 4 |
-| Early Stopping | Enabled |
+### 🏠 Homepage
+
+![Homepage](screenshots/homepage.png)
 
 ---
 
-# 💻 Device Compatibility
+### ⏳ Summary Generation
 
-The application automatically selects the best available hardware.
-
-Priority Order
-
-```
-Apple Silicon (MPS)
-        ↓
-NVIDIA GPU (CUDA)
-        ↓
-CPU
-```
+![Loading](screenshots/loading.png)
 
 ---
 
-# 🌐 API Endpoint
+### 📋 Generated Summary
 
-## Generate Summary
+![Generated Summary](screenshots/copy-summary.png)
 
-**POST**
+---
 
-```
-/summarize/
-```
+## 📂 Project Structure
 
-### Request
-
-```json
-{
-    "dialogue": "Enter your long text here."
-}
-```
-
-### Response
-
-```json
-{
-    "summary": "Generated summary."
-}
+```text
+Briefly/
+│
+├── screenshots/
+│   ├── homepage.png
+│   ├── loading.png
+│   └── copy-summary.png
+│
+├── index.html
+├── main.py
+├── notebook.ipynb
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-# 🚀 Installation
+## 🚀 Installation & Setup
 
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Briefly.git
+git clone https://github.com/shubhamm-27/Briefly_AI-Powered-Text-Summarizer.git
 ```
 
-Move inside the project
+Navigate to the project directory
 
 ```bash
-cd Briefly
+cd Briefly_AI-Powered-Text-Summarizer
 ```
 
-Install dependencies
+Install the required dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the application
+Run the FastAPI server
 
 ```bash
 uvicorn main:app --reload
@@ -273,122 +198,83 @@ http://127.0.0.1:8000
 
 ---
 
-# 📋 User Interface Features
+## 🌐 API Endpoint
 
-✅ Glassmorphism design
+### Generate Summary
 
-✅ Animated gradient project title
+**POST** `/summarize/`
 
-✅ Responsive layout
+### Request
 
-✅ Character counter
-
-✅ Loading spinner
-
-✅ Copy summary button
-
-✅ Smooth animations
-
-✅ Clean and modern interface
-
----
-
-# 📊 Project Workflow
-
+```json
+{
+  "dialogue": "Enter your text here..."
+}
 ```
-Long Text
-     │
-     ▼
-Frontend
-     │
-     ▼
-FastAPI API
-     │
-     ▼
-Data Cleaning
-     │
-     ▼
-Tokenizer
-     │
-     ▼
-Fine-Tuned T5
-     │
-     ▼
-Summary
-     │
-     ▼
-Frontend Output
+
+### Response
+
+```json
+{
+  "summary": "Generated summary..."
+}
 ```
 
 ---
 
-# 📦 Dependencies
+## ⚙ Model Configuration
 
-- FastAPI
-- Transformers
-- PyTorch
-- Pydantic
-- Jinja2
-- SentencePiece
-- Accelerate
-- Uvicorn
-
----
-
-# ⚠ Note
-
-The trained model (`saved_summary_model`) is **not included** in this repository due to its large size.
-
-To run the application locally, place the trained model inside the project directory as:
-
-```
-saved_summary_model/
-```
+| Parameter | Value |
+|-----------|-------|
+| Model | Fine-Tuned T5 Transformer |
+| Framework | Hugging Face Transformers |
+| Deep Learning Library | PyTorch |
+| Maximum Input Length | 512 Tokens |
+| Maximum Output Length | 150 Tokens |
+| Beam Search | 4 |
+| Early Stopping | Enabled |
 
 ---
 
-# 🔮 Future Enhancements
+## 📌 Project Highlights
 
-- 📄 PDF summarization
-- 📑 DOCX summarization
+- Fine-tuned a T5 Transformer model for abstractive text summarization.
+- Built a complete FastAPI-based inference pipeline.
+- Designed a modern and responsive frontend using HTML, CSS, and JavaScript.
+- Implemented automatic text preprocessing before model inference.
+- Integrated frontend and backend using REST APIs.
+- Added user-friendly features such as loading animation, character counter, and one-click summary copying.
+
+---
+
+## 📌 Note
+
+The trained **T5 model (`saved_summary_model`)** is not included in this repository because of its large size. To run the project locally, place the trained model inside the project directory before starting the FastAPI server.
+
+---
+
+## 🔮 Future Enhancements
+
+- 📄 PDF and DOCX summarization
 - 🌍 Multilingual summarization
 - 📁 File upload support
-- 📊 Multiple summary lengths
-- 🔐 User authentication
-- 🗂 Summary history
+- 📊 Adjustable summary length
+- 🐳 Docker deployment
 - ☁ Cloud deployment
-- 🐳 Docker support
-- 📱 Mobile-friendly UI improvements
+- 🔐 User authentication and summary history
 
 ---
 
-# 🎯 Learning Outcomes
-
-This project helped in understanding:
-
-- Natural Language Processing (NLP)
-- Transformer-based Language Models
-- Fine-Tuning T5
-- Hugging Face Transformers
-- PyTorch Model Inference
-- FastAPI Development
-- REST API Design
-- Frontend–Backend Integration
-- Text Preprocessing
-- Model Deployment Workflow
-
----
-
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Shubham Sharma**
 
-📧 Email: *your-email@example.com*
+Aspiring AI Engineer | Machine Learning Enthusiast
 
-💼 LinkedIn: *Add your LinkedIn Profile*
+📧 Email: shubham789keeds@gmail.com
 
-💻 GitHub: *https://github.com/your-username*
+💼 LinkedIn: [Shubham Sharma](https://www.linkedin.com/in/shubhammm27/)
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a Star!
+⭐ **If you found this project useful, consider giving it a Star!**
