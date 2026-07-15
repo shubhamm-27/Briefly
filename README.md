@@ -149,6 +149,11 @@ The summary is displayed on the webpage, where users can instantly copy it using
 ```text
 Briefly/
 │
+├── datasets/
+│   ├── samsum-test.csv
+│   ├── samsum-train.csv
+│   └── samsum-validation.csv
+│
 ├── screenshots/
 │   ├── homepage.png
 │   ├── loading.png
